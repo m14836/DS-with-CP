@@ -1,8 +1,0 @@
-output
-Preorder:
-10 20 40 30 
-Inorder:
-40 20 10 30 
-Postorder:
-40 20 30 10 
-=== Code Execution Successful ===
