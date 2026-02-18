@@ -1,48 +1,60 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
-
 class Node{
     int data;
-    Node l,r;
-    
+    Node l, r;
+
     Node(int a){
-        this.data=a;
-        this.l =this.r = null;
+        data = a;
+        l = r = null;
     }
-    
-    // recursive  method
-    void TreeTraverse(Node n){
-        //base condition
-        if(n==null)return;
-        TreeTraverse(n.l);
-        TreeTraverse(n.r);
-        //post order traversal
-        System.out.println(n.data);
+
+    // Preorder Traversal
+    void preorder(Node n){
+        if(n == null) return;
+
+        System.out.print(n.data + " ");
+        preorder(n.l);
+        preorder(n.r);
+    }
+
+    // Inorder Traversal
+    void inorder(Node n){
+        if(n == null) return;
+
+        inorder(n.l);
+        System.out.print(n.data + " ");
+        inorder(n.r);
+    }
+
+    // Postorder Traversal
+    void postorder(Node n){
+        if(n == null) return;
+
+        postorder(n.l);
+        postorder(n.r);
+        System.out.print(n.data + " ");
     }
 }
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Try programiz.pro");
+
         Node a = new Node(10);
         Node b = new Node(20);
         Node c = new Node(30);
         Node d = new Node(40);
-        
-        //linking
-        a.l=b;
-        a.r=c;
-        b.l=d;
-        
-         System.out.println("post order traversal");
-         a.TreeTraverse(a);
-         
-        
-        
-                       
-                       
-                       
-                       
-                       
+
+        // linking
+        a.l = b;
+        a.r = c;
+        b.l = d;
+
+        System.out.println("Preorder:");
+        a.preorder(a);
+
+        System.out.println("\nInorder:");
+        a.inorder(a);
+
+        System.out.println("\nPostorder:");
+        a.postorder(a);
     }
 }
